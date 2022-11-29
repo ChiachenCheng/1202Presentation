@@ -8,8 +8,9 @@ data <- read.csv("SP500.csv")
 head(data)
 
 Ret <- data$sprtrn
+dates <- ymd(data$caldt)
 
-plot(Ret, type = "l", main = "data")
+plot(dates, Ret, type = "l", main = "data")
 # plot(Y$date, Y$JPM, type = "l", main = "Compound returns for JP Morgan", 
 #     ylab = "Returns", xlab = "Date", col = "red")
 
@@ -44,8 +45,6 @@ qqPlot(Ret, distribution = "t", df = 3, envelope = FALSE,
 # 4 degrees of freedom
 qqPlot(Ret, distribution = "t", df = 4, envelope = FALSE,
       main = "4 Degrees of Freedom")
-
-install.packages("fGarch")
 
 library(fGarch)
 
